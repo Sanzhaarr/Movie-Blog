@@ -1,6 +1,6 @@
-package film.movieblog.data;
+package movieBlog.data;
 
-import film.movieblog.Movie;
+import movieBlog.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;

@@ -10,16 +10,17 @@
     <h1>Add New Movie</h1>
     <form th:action="@{/movies}" method="post">
         <label>Title:</label>
-        <input type="text" th:field="*{title}"/>
-        <br>
-        <label>Director:</label>
-        <input type="text" th:field="*{director}"/>
-        <br>
+        <input type="text" name="title" required/>
+
+        <label>Description:</label>
+        <textarea name="description" required></textarea>
+
         <label>Release Year:</label>
-        <input type="number" th:field="*{releaseYear}"/>
-        <br>
-        <input type="submit" value="Add Movie"/>
+        <input type="number" name="releaseYear" required/>
+
+        <button type="submit">Add Movie</button>
     </form>
+
 </div>
 
 

@@ -1,9 +1,16 @@
-package film.movieblog;
+package movieBlog;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan
 public class ProjectConfig {
+
+    @Bean
+    Movie movie(){
+        var movie = new Movie();
+        return movie;
+    }
 }

@@ -1,6 +1,6 @@
-package film.movieblog.data;
+package movieBlog.data;
 
-import film.movieblog.Movie;
+import movieBlog.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +12,7 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     List<Movie> findByName(String name);
     List<Movie> findByGenre(String genre);
     List<Movie> findByYearOrderByYearAsc(Integer year);
+    List<Movie> deleteByName(String name);
 
 }
 
