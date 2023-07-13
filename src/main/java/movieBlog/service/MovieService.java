@@ -6,6 +6,7 @@ import movieBlog.Movie;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class MovieService {
@@ -31,20 +32,24 @@ public class MovieService {
         return movieRepo.save(movie);
     }
 
-    public Movie updateMovie(Long id, Movie movieDetails){
-        Movie movie = getMovieById(id);
+    @Override
+    public Map<String, String> updateMovie(Movie movie){
 
-        movie.setYear(movieDetails.getYear());
-        movie.setGenre(movieDetails.getGenre());
-        movie.setName(movieDetails.getName());
 
-        return movieRepo.save(movie);
     }
 
-//TODO ADD CUSTOM METHOD DELETING BY ENTITY
-// public void deleteMovie(String name){
-//        return movieRepo.deleteByName(name);
+//    public Movie updateMovie(Long id, Movie movieDetails){
+//        Movie movie = getMovieById(id);
+//
+//        movie.setYear(movieDetails.getYear());
+//        movie.setGenre(movieDetails.getGenre());
+//        movie.setName(movieDetails.getName());
+//
+//        return movieRepo.save(movie);
 //    }
+
+//TODO ADD CUSTOM METHOD DELETING BY ENTITY
+
 
     public void deleteMovie(String name){
         movieRepo.deleteByName(name);

@@ -9,13 +9,10 @@ public class RegistrationForm {
     private String username;
     private String password;
     private String fullname;
-    private String city;
-    private String phone;
+    private String phoneNumber;
 
     public User toUser(PasswordEncoder passwordEncoder) {
-        return new User(
-            username, passwordEncoder.encode(password),
-            fullname, city, phone);
+        return new User(username, passwordEncoder.encode(password),fullname, phoneNumber);
     }
 
 }

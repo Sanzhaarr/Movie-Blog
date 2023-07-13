@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/registration")
+@RequestMapping("/register")
 public class RegistrationController {
 
     private UserRepository userRepo;
@@ -24,7 +24,7 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public String processRegistraition(RegistrationForm form){
+    public String processRegistration(RegistrationForm form){
         userRepo.save(form.toUser(passwordEncoder));
         return "redirect:/login";
     }

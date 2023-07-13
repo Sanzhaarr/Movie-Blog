@@ -7,9 +7,8 @@ import movieBlog.service.MovieService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -31,6 +30,11 @@ public class MovieController {
         this.movieService = movieService;
     }
 
+    @GetMapping("/movies")
+    public List<Movie> showMovies(){
+        return movieService.getAllMovies();
+    }
+
 //    @GetMapping("/movies/new")
 //    public String AddMovieForm(Model model) {
 //        model.addAttribute("movie", new Movie());
@@ -38,33 +42,26 @@ public class MovieController {
 //    }
 //
 //
-//    @PostMapping("/movies/new")
+//    @PostMapping("/movies/new/add")
 //    public String addMovieSubmit(@ModelAttribute Movie movie) {
-////
 //        movieRepository.save(movie);
 //        return "redirect:/movies";
 //    }
+    @GetMapping("/{movieId}")
+    public Movie getMovie(@PathVariable String movieId){
+        return movieService.getMovieById((long) Integer.parseInt(movieId));
+    }
+
+    @PostMapping("/movies/add")
+    public Movie addMovie(Movie movie){
+        return movieService.createMovie(movie);
+    }
 
 
-//    @PostMapping("/movies/new")
-//    public String addMovieSubmit(HttpServletRequest request) {
-//        try {
-//            String name = request.getParameter("name");
-//            String genre = request.getParameter("genre");
-//            int year = Integer.parseInt(request.getParameter("year"));
-//
-//            Movie movie = new Movie();
-//            movie.setName(name);
-//            movie.setGenre(genre);
-//            movie.setYear(year);
-//
-//            movieRepository.save(movie);
-//
-//            return "redirect:/movies.html";
-//        } catch (Exception e) {
-//            return "error-page.html";
-//        }
-//    }
+
+
+
+
 
 
 }
