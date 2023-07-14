@@ -7,3 +7,4 @@ Tools used:
    - React (Front-end development)
    - PostgreSql (Database)
 
+You're welcome to contribute!
