@@ -1,67 +1,53 @@
 package movieBlog.controllers;
 
-import movieBlog.data.MovieRepository;
-import movieBlog.Movie;
-import movieBlog.Profile;
-import movieBlog.service.MovieService;
 import lombok.Data;
+import movieBlog.Movie;
+import movieBlog.data.MovieRepository;
+import movieBlog.service.MovieServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.Map;
 
 @Data
-@Controller
+@RestController
 public class MovieController {
 
-    public final Movie movie;
-    public final Profile profile;
-    public final MovieRepository movieRepository;
-    public final MovieService movieService;
+    private MovieRepository movieRepository;
+    private Movie movie;
+    private MovieServiceImpl movieService;
 
     @Autowired
-    public MovieController(Movie movie, Profile profile, MovieRepository movieRepository, MovieService movieService) {
-        this.movie = movie;
-        this.profile = profile;
+    public MovieController(MovieRepository movieRepository, MovieServiceImpl movieService) {
         this.movieRepository = movieRepository;
+        this.movie = movie;
         this.movieService = movieService;
     }
 
     @GetMapping("/movies")
-    public List<Movie> showMovies(){
-        return movieService.getAllMovies();
+    public Collection<Movie> showAllMovies(){
+        return movieRepository.findAll();
     }
 
-//    @GetMapping("/movies/new")
-//    public String AddMovieForm(Model model) {
-//        model.addAttribute("movie", new Movie());
-//        return "add_movies.html";
-//    }
-//
-//
-//    @PostMapping("/movies/new/add")
-//    public String addMovieSubmit(@ModelAttribute Movie movie) {
-//        movieRepository.save(movie);
-//        return "redirect:/movies";
-//    }
-    @GetMapping("/{movieId}")
-    public Movie getMovie(@PathVariable String movieId){
-        return movieService.getMovieById((long) Integer.parseInt(movieId));
+    @PostMapping("/movies/new")
+    public String addMovie(@RequestBody Movie movie) {
+        movieService.createMovie(movie);
+        return "Movie added";
     }
 
-    @PostMapping("/movies/add")
-    public Movie addMovie(Movie movie){
-        return movieService.createMovie(movie);
+    @PutMapping("/movies/update/{id}")
+    public Map<String, String> updateMovie(){
+        return movieService.updateMovie();
     }
 
+    @DeleteMapping("/movies/delete/{id}")
+    public ResponseEntity<String> deleteMovie(@PathVariable Movie id){
+        //TODO: 1) IF USER AUTHENTICATED, 2)IF MOVIE EXISTS, 3) UPDATE NEW VERSION
+        return movieService.deleteMovie(id);
 
-
-
-
-
-
-
+    }
+    
 }
+

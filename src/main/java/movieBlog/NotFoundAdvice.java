@@ -1,4 +1,4 @@
-package movieBlog.controllers;
+package movieBlog;
 
 import movieBlog.MovieNotFoundException;
 import org.springframework.http.HttpStatus;
