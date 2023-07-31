@@ -1,6 +1,6 @@
 package movieBlog.service;
 
-import movieBlog.MovieNotFoundException;
+import movieBlog.exxception.MovieNotFoundException;
 import movieBlog.data.MovieRepository;
 import movieBlog.Movie;
 import org.springframework.beans.factory.annotation.Autowired;

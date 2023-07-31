@@ -1,4 +1,4 @@
-package movieBlog;
+package movieBlog.exxception;
 
 public class MovieNotFoundException extends RuntimeException{
 
