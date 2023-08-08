@@ -13,6 +13,7 @@ import java.util.Map;
 
 @Data
 @RestController
+@CrossOrigin("http://localhost:3000")
 public class MovieController {
 
     private MovieRepository movieRepository;

@@ -13,11 +13,12 @@ import org.springframework.stereotype.Component;
 public class Movie {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String name;
     private String genre;
     private Integer year;
+    private String links;
 
 }
