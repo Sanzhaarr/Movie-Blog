@@ -2,9 +2,10 @@
 
 Blog, where people can share opinions by commenting and grading the movie.
 
-Tools used:
-   - Spring framework (Back-end development)
+Tools Used:
+   - Spring framework 
    - React (Front-end development)
    - PostgreSql (Database)
 
-You're welcome to contribute!
+
+
