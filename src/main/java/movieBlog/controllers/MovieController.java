@@ -1,7 +1,7 @@
 package movieBlog.controllers;
 
 import lombok.Data;
-import movieBlog.Movie;
+import movieBlog.entites.Movie;
 import movieBlog.data.MovieRepository;
 import movieBlog.service.MovieServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;

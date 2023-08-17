@@ -1,6 +1,6 @@
 package movieBlog.service;
 
-import movieBlog.Movie;
+import movieBlog.entites.Movie;
 import org.springframework.http.ResponseEntity;
 
 import java.util.Collection;

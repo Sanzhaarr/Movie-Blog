@@ -1,4 +1,4 @@
-package movieBlog;
+package movieBlog.entites;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
