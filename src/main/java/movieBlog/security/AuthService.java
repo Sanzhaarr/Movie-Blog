@@ -38,7 +38,10 @@ public class AuthService {
 
     public ResponseEntity<?> createNewUser(@RequestBody RegistrationUserDto registrationUserDto){
         if (!registrationUserDto.getPassword().equals(registrationUserDto.getConfirmPassword())){
-            return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Passwords are not equal"), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Passwords are not equal"), HttpStatus.BAD_REQUEST);
+        }
+        if (userService.findByUsername(registrationUserDto.getUsername()).isPresent()){
+            return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "user already exists"), HttpStatus.BAD_REQUEST);
         }
         User user = userService.createNewUser(registrationUserDto);
         return ResponseEntity.ok(new UserDto(user.getId(), user.getUsername(), user.getEmail()));

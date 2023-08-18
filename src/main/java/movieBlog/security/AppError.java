@@ -14,6 +14,6 @@ public class AppError {
     public AppError(int status, String message) {
         this.status = status;
         this.message = message;
-//        this.timestamp = new Date();
+        this.timestamp = new Date();
     }
 }

@@ -1,4 +1,4 @@
-package movieBlog.config;
+package movieBlog.security;
 
 import lombok.RequiredArgsConstructor;
 import movieBlog.security.UserService;

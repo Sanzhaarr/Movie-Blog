@@ -1,4 +1,4 @@
-package movieBlog.controllers;
+package movieBlog.security;
 
 
 import lombok.Data;
