@@ -4,7 +4,6 @@ package movieBlog.security;
 import lombok.Data;
 import movieBlog.dto.JwtRequest;
 import movieBlog.dto.RegistrationUserDto;
-import movieBlog.security.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,10 +24,4 @@ public class AuthController {
     public ResponseEntity<?> createUser (@RequestBody RegistrationUserDto registrationUserDto){
         return authService.createNewUser(registrationUserDto);
     }
-
-    
-
-
-
-
 }
